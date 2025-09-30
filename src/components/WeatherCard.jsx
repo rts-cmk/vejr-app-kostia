@@ -1,7 +1,7 @@
 import "./WeatherCard.css"
 
 export default function WeatherCard({ data }){
-    if (!data) return <p>error</p>
+    if (!data) return <div className="card"><h2>byen ikke fundet</h2></div>
 
     return(
         <div className="card">

@@ -15,8 +15,18 @@ export default function App() {
     if (!searchCity) return;
 
     fetch(`${BASE_URL}?q=${searchCity}&appid=${API_KEY}`)
-      .then((res) => res.json())
-      .then((json) => setData(json));
+      .then((res) => {
+        if(!res.ok){
+          throw new Error("byen ikke fundet")
+        }
+        return res.json()
+      } 
+      )
+      .then((json) => setData(json))
+      .catch((err) => {
+        alert(err.message)
+        setData(null)
+      })
   }, [searchCity]);
 
   function handleSearch(e) {
