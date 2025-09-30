@@ -6,7 +6,8 @@ export default function WeatherCard({ data }){
     return(
         <div className="card">
             <h2>{data.name}</h2>
-            <p>Temp: {Math.round(data.main.temp - 273.15)}°C</p>
+            <p><span>Temp:</span> {Math.round(data.main.temp - 273.15)}°C</p>
+            <p><span>Vejr:</span> {data.weather[0].main}</p>
         </div>
     )
 }
